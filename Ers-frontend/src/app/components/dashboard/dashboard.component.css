@@ -1,0 +1,11 @@
+
+@import "~bootstrap/dist/css/bootstrap.css";
+.create {
+    margin: 20px;
+}
+
+.create-container{
+    justify-content: auto;
+    align-content: center;
+}
+

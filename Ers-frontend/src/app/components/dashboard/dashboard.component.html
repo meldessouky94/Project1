@@ -1,0 +1,53 @@
+<!-- <head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+</head> -->
+
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <table class="table table-dark bg-primary" *ngIf="reimbursements">
+        <th>Amount</th>
+        <th>Date Submitted</th>
+        <th>Date Resolved</th>
+        <th>Description</th>
+        <th>Status</th>
+        <th>Type</th>
+
+        <tr *ngFor="let reimb of reimbursements">
+          <td>{{reimb.amount}}</td>
+          <td>{{reimb.submitted | date: 'dd/MM/yyyy'}}</td>
+          <td>{{reimb.resolved | date: 'dd/MM/yyyy'}}</td>
+          <td>{{reimb.description}}</td>
+          <td>{{reimb.status | reimbStatus}}</td>
+          <td>{{reimb.type | reimbType}}</td>
+        </tr>
+      </table>
+
+      <div class="create-container" *ngIf="gotReimb">
+        <input type="text" name="amount" id="amount" [(ngModel)]="amount" placeholder="Reimbursement Amount">
+        <div class="create">
+          <select name="type" id="type" [(ngModel)]="type">
+            <option value="" disabled selected>Type of Reimbursement</option>
+            <option value="1">Lodging</option>
+            <option value="2">Travel</option>
+            <option value="3">Food</option>
+            <option value="4">Other</option>
+          </select>
+        </div>
+        <div>
+          <textarea name="description" id="description" [(ngModel)]="description" placeholder="Description" rows="4"
+            cols="50"></textarea>
+        </div>
+        <div>
+          <button (click)="addReimb()">Submit</button>
+        </div>
+
+
+        
+        
+      </div>
+      <button (click)="getReimb()">get reimbursement </button>
+        <button (click)="createReimb()">create reimbursement</button>
+    </div>
+  </div>
+</div>
